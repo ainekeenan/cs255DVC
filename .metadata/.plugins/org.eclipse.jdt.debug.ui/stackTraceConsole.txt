@@ -1,0 +1,35 @@
+
+		String in;
+		String outA="", outB="", outC="", outD="", outF="", outAll="";
+		int n;
+		
+		in = JOptionPane.showInputDialog("Enter how many students:");
+		n = Integer.parseInt(in);
+	
+		
+		Student[] st = new Student[n];
+		String token;
+		
+		
+		for(int i=0; i<st.length;i++) {
+			in = JOptionPane.showInputDialog("Enter ID of student, name, and number of tests, grades; seperated by commas");
+			StringTokenizer	stu = new StringTokenizer(in,",");
+			
+			token = stu.nextToken().trim();
+			
+			int id = Integer.parseInt(token);
+			String name= stu.nextToken().trim();
+			
+			token = stu.nextToken ().trim();
+			int numOfTest= Integer.parseInt(token);
+			
+			double[] eScore = new double[numOfTest];
+			
+			for(int j= 0; j< eScore.length;j++) {
+				token = stu.nextToken ().trim();
+				eScore[j] = Double.parseDouble(token);
+	
+			}
+			
+			st[i] = new Student(id, name, eScore);
+		}
